@@ -1,5 +1,5 @@
 const state = {
-
+  users: []
 }
 
 const actions = {
