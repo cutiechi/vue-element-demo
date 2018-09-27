@@ -13,7 +13,20 @@ const insert = data => request({
   data
 })
 
+const deleteById = userId => request({
+  url: '/users/' + userId,
+  method: 'delete'
+})
+
+const update = data => request({
+  url: '/users/' + data.userId,
+  method: 'put',
+  data
+})
+
 export {
   listAll,
-  insert
+  insert,
+  deleteById,
+  update
 }
