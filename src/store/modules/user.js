@@ -1,4 +1,4 @@
-import { listAll, insert } from '../../api/user'
+import { listAll, insert, deleteById, update } from '../../api/user'
 
 const state = {
   users: []
@@ -11,6 +11,14 @@ const actions = {
   },
   async insert ({ commit }, userForm) {
     await insert(userForm)
+    await this.dispatch('listAll')
+  },
+  async deleteById ({ commit }, userId) {
+    await deleteById(userId)
+    await this.dispatch('listAll')
+  },
+  async update ({ commit }, user) {
+    await update(user)
     await this.dispatch('listAll')
   }
 }
